@@ -1,0 +1,38 @@
+<ui:composition template="/templates/uma-coluna.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="conteudo">
+		<h:form id="frmSave">
+			<p:panel>
+				<h:panelGrid columns="2" cellpadding="10">
+				
+					<p:outputLabel value="Nome" styleClass="input-label" for="nome" />
+					<p:inputText id="nome" label="Nome" value="#{contatoBean.contato.nome}" size="50" maxlength="45"/>
+	
+					<p:outputLabel value="CFF" styleClass="input-label" for="cpf" />
+					<p:inputText id="cpf" label="CFF" value="#{contatoBean.contato.cpf}" size="20" maxlength="15"/>
+						
+					<p:outputLabel value="UF" styleClass="input-label" for="uf" />
+					<p:selectOneMenu value="#{contatoBean.contato.uf}" id="uf" filter="true" filterMatchMode="contains">
+						<f:selectItems value="#{contatoBean.estados}" var="obj" itemValue="#{obj}" itemLabel="#{obj.sigla}"/>
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="Tipo de Pessoa" styleClass="input-label" for="tipo"/>
+					<h:selectOneRadio id="tipo" value="contatoBean.tipo" layout="grid" columns="2">
+						<f:selectItems value="#{contatoBean.tipoPessoas}" var="obj" itemValue="#{obj}" itemLabel="#{obj.descricao}" itemDescription="#{obj.sigla}"/>
+						<p:ajax event="change" />
+					</h:selectOneRadio>
+										
+				</h:panelGrid>
+	
+				<h:panelGrid columns="1" cellpadding="10">
+					<h:commandButton id="btnSaveAndClean" value="Salvar" styleClass="submitform" action="#{contatoBean.salvar}" update="@form"/>
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

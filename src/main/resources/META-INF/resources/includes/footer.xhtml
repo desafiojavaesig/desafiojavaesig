@@ -1,0 +1,21 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html">
+
+    <div>
+        <p>
+            <b><h:outputText value="#{cfg['app.name']}" /></b>
+        </p>
+        <p>
+            <h:outputText value="Versão #{cfg['app.version.number']} de #{cfg['app.version.date']}" style="font-size: 10px" />
+        </p>
+    </div>
+
+    <ul>
+        <li><a href="#" title="Site TJRN" target="_blank">Site Desafio java</a></li>
+        <li><a href="#" title="Intranet" target="_blank">Intranet</a></li>
+        <li><a href="#container" id="topodapagina" title="Topo da página">Topo da página</a></li>
+    </ul>
+
+</ui:composition>
