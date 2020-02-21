@@ -14,7 +14,7 @@ git push -u origin master<br /><br />
 Seguem os itens não implentados:<br /><br />
 * Para compensar alguns dos itens <C,E,H,I,J,K>
 
-Seguem os itens implementados:<br /><br />
+Seguem os itens implementados:<br />
 A. Criado uma aplicação java web utilizando JavaServer Faces (JSF)<br />
 B. Utilizado persistência em um banco de dados (SQL Server)<br />
 D. Utilizado Spring Framework Boot 2.0<br />
@@ -25,7 +25,7 @@ Implementado <flyway, lombok><br />
 Flyway é uma dentre as várias ferramentas que se propõem a trazer ordem e organização para os scripts SQL<br />
 que são executados no banco de dados, funcionando como um controle de versão do mesmo.<br /><br />
 
-Uma ferramenta como esta permite:<br /><br />
+Uma ferramenta como esta permite:<br />
 
 Sincronizar o banco de dados com a versão da aplicação;<br />
 Saber quais scripts SQL foram executados ou não;<br />
