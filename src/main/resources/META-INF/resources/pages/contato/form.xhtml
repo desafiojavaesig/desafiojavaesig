@@ -21,12 +21,6 @@
 						<f:selectItems value="#{contatoBean.estados}" var="obj" itemValue="#{obj}" itemLabel="#{obj.sigla}"/>
 					</p:selectOneMenu>
 					
-					<p:outputLabel value="Tipo de Pessoa" styleClass="input-label" for="tipo"/>
-					<h:selectOneRadio id="tipo" value="contatoBean.tipo" layout="grid" columns="2">
-						<f:selectItems value="#{contatoBean.tipoPessoas}" var="obj" itemValue="#{obj}" itemLabel="#{obj.descricao}" itemDescription="#{obj.sigla}"/>
-						<p:ajax event="change" />
-					</h:selectOneRadio>
-										
 				</h:panelGrid>
 	
 				<h:panelGrid columns="1" cellpadding="10">
