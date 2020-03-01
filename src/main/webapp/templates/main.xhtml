@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" 
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    lang="pt-BR">
+    
+<ui:remove>
+	<c:set scope="request" value="#{facesContext.viewRoot.viewId.split(initParam['javax.faces.DEFAULT_SUFFIX'])[0]}" var="currentview"/>
+</ui:remove>
+
+<c:set scope="application" value="#{facesContext.externalContext.requestContextPath}" var="path"/>
+<h:head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="Desafio java" name="description" />
+    
+    <h:outputStylesheet library="css" name="ui.css"/>    
+    <h:outputStylesheet library="css" name="datatable.css"/>
+    <h:outputStylesheet library="css" name="messages.css"/>
+    <h:outputStylesheet library="css" name="sistemas.css"/>
+    <h:outputStylesheet library="css" name="menu-styles.css"/>  
+    <h:outputStylesheet library="css" name="themes/blue.css"/>
+    <h:outputStylesheet library="css" name="extra.css"/>
+    <h:outputStylesheet library="webjars" name="font-awesome/4.5.0/css/font-awesome-jsf.css" />
+    
+   	<h:outputScript library="js" name="jquery.js" target="head" />
+   	
+   	<h:outputScript library="js" name="menu-styles.js" target="head" />
+	
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery('#pesquisa input[type="text"]').bind({
+                focusin: function() {
+                    var inputSearch = jQuery(this).val();
+                    if (inputSearch == '' || inputSearch == 'Pesquisar') {
+                        jQuery(this).attr('value', '');
+                    }
+                },
+                focusout: function() {
+                    var inputSearch = jQuery(this).val();
+                    if (inputSearch == '' || inputSearch == 'Pesquisar') {
+                        jQuery(this).attr('value', 'Pesquisar');
+                    }
+                }
+            });
+        });
+    </script>
+    
+    <ui:insert name="head" />
+</h:head>
+
+<h:body>
+    <div id="container">
+        <ui:insert name="header">
+            <ui:include src="/includes/header.xhtml" />
+        </ui:insert>
+
+        <div id="centro">
+            <ui:insert name="centro">Body</ui:insert>
+        </div>
+        <!-- #centro -->
+        <div id="rodape">
+            <ui:insert name="footer">
+                <ui:include src="/includes/footer.xhtml" />
+            </ui:insert>
+        </div>
+        <!-- #rodape -->
+    </div>
+    <!-- #container -->
+
+    <p:confirmDialog global="true" closeOnEscape="true" modal="true">
+        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    </p:confirmDialog>
+    
+    <h:outputScript name="#{pathResources}/plugins/Inputmask-3.x/js/inputmask.js"/>
+    <h:outputScript name="#{pathResources}/plugins/Inputmask-3.x/js/inputmask.numeric.extensions.js"/>
+    <h:outputScript name="#{pathResources}/plugins/Inputmask-3.x/js/jquery.inputmask.js"/>
+    
+    <script type="text/javascript">    
+    	
+    	jQuery(document).ready(function() {
+            var selector = document.getElementsByClassName("cpf_cnpj");
+            jQuery(selector).inputmask({mask: ['999.999.999-99', '99.999.999/9999-99'], keepStatic: true});
+        }); 
+    	
+    </script>
+    
+</h:body>
+</html>

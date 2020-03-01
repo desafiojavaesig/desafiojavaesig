@@ -2,7 +2,6 @@ package br.com.desafio.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +29,8 @@ public class ContatoServiceImpl implements IContatoService {
 	}
 
 	@Override
-	public Optional<Contato> buscarPorId(Long id) {
-		Optional<Contato> contato = contatoRepository.findById(id);
+	public Contato buscarPorId(Long id) {
+		Contato contato = contatoRepository.findOne(id);
 		return contato;
 	}
 

@@ -6,31 +6,51 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.desafio.entity.Contato;
 import br.com.desafio.service.IContatoService;
 import br.com.desafio.util.Estados;
 import br.com.desafio.util.TipoPessoa;
+import lombok.Getter;
+import lombok.Setter;
 
+@RestController
+@RequestMapping(path = "api/contato")
 @Controller
 @Scope("session")
 public class ContatoBean {
 	
+	@Getter @Setter
 	private Long id;
+	
+	@Getter @Setter
 	private String nome;
+	
+	@Getter @Setter
 	private String cpf;
+	
+	@Getter @Setter
 	private String uf;
 	
-	private IContatoService contatoService;
+	@Getter @Setter
+	private Contato contato;
 	
-	private Contato contato = new Contato();
-	private List<Contato> listaContatos = new ArrayList<Contato>();
+	@Getter @Setter
+	private List<Contato> listaContatos;
+	
+	private IContatoService contatoService;
 	
 	@Autowired	
 	public ContatoBean(IContatoService contatoService) {
 		this.contatoService = contatoService;
+		this.contato = new Contato();		
+		this.listaContatos = new ArrayList<Contato>();
 	}
 	
+	@RequestMapping(value = "listaestados", method= RequestMethod.GET)
 	public List<Estados> getEstados() {
 		return Estados.getEstados();
 	}
@@ -47,8 +67,9 @@ public class ContatoBean {
 	public String salvar() {		
 		this.contato.setId(this.contato.getId());
 		this.contato.setNome(this.contato.getNome());
-		this.contato.setCpf(this.contato.getCpf());
+		this.contato.setCpf(this.contato.getCpf().replaceAll("\\D", ""));
 		this.contato.setUf(this.contato.getUf());
+		this.contato.setTipoPessoa(this.contato.getTipoPessoa());
 		this.contatoService.cadastrar(this.contato);
 		this.contato = new Contato();
 		listaContatos = contatoService.pesquisar(this.contato);
@@ -60,6 +81,7 @@ public class ContatoBean {
 		this.contato.setNome(contato.getNome());
 		this.contato.setCpf(contato.getCpf());
 		this.contato.setUf(contato.getUf());
+		this.contato.setTipoPessoa(contato.getTipoPessoa());
 		return "/pages/contato/form?faces-redirect=true";
 	}
 	
@@ -73,60 +95,4 @@ public class ContatoBean {
 		this.contato = new Contato();
 	}
 	
-	public Contato getContato() {
-		return this.contato;
-	}
-
-	public void setContato(Contato contato) {
-		this.contato = contato;
-	}
-
-	public IContatoService getContatoService() {
-		return contatoService;
-	}
-
-	public void setContatoService(IContatoService contatoService) {
-		this.contatoService = contatoService;
-	}
-
-	public List<Contato> getListaContatos() {
-		return this.listaContatos;
-	}
-
-	public void setListaContatos(List<Contato> listaContatos) {
-		this.listaContatos = listaContatos;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getUf() {
-		return uf;
-	}
-
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
-
 }

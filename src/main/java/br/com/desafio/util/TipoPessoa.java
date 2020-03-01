@@ -3,11 +3,17 @@ package br.com.desafio.util;
 import java.util.Arrays;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public enum TipoPessoa {
 	F("Física", "F"),
 	J("Júridica", "J");
 	
+	@Getter @Setter
 	private String descricao;
+	
+	@Getter @Setter
 	private String sigla;
 	
 	private TipoPessoa(String descricao, String sigla) {
@@ -36,22 +42,5 @@ public enum TipoPessoa {
 		}
 		return null;
 	}
-	
-	public String getDescricao() {
-		return descricao;
-	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getSigla() {
-		return sigla;
-	}
-
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
-	}
-	
-	
 }

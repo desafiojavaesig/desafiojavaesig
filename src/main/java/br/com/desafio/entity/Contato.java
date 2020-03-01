@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import br.com.desafio.util.Estados;
+import br.com.desafio.util.TipoPessoa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -41,7 +42,7 @@ public class Contato implements Serializable {
 
 	@Getter
 	@Setter
-	@Column(name = "Cpf", nullable = true, length = 11)
+	@Column(name = "Cpf", nullable = true, length = 14)
 	private String cpf;
 
 	@Getter
@@ -50,4 +51,9 @@ public class Contato implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Estados uf;
 
+	@Getter
+	@Setter
+	@Column(name = "tipopessoa", nullable = true, length = 1)
+	@Enumerated(EnumType.STRING)
+	private TipoPessoa tipoPessoa;
 }

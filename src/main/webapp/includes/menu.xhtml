@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<div id="menu">
+		<ul>
+			<li><a href="#{path}/index.jsf"><span>Início</span></a></li>
+
+			<li class="has-sub"><a href="#"><span>Cadastro</span></a>
+				<ul>
+					<li class="last"><h:link outcome="/pages/contato/contato"
+							title="Contato" value="Contato" /></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</ui:composition>
