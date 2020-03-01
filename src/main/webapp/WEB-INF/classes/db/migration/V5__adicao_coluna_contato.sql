@@ -1,0 +1,1 @@
+ALTER TABLE Contato ADD Tipopessoa VARCHAR(1);

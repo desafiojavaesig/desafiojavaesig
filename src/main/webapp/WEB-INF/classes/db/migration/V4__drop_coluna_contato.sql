@@ -1,0 +1,1 @@
+ALTER TABLE Contato DROP COLUMN Tipopessoa;

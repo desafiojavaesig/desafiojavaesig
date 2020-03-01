@@ -20,6 +20,7 @@ Para compensar alguns dos itens <C,E,H,I,J,K><br />
 Seguem os itens implementados:<br />
 A. Criado uma aplicação java web utilizando JavaServer Faces (JSF)<br />
 B. Utilizado persistência em um banco de dados (SQL Server)<br />
+C. JPA<br />
 D. Utilizado Spring Framework Boot 2.0<br />
 F. Utilizado Bootstrap 4<br />
 G. Utilizado Primefaces<br /><br />
