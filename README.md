@@ -15,7 +15,7 @@ git push -u origin master<br /><br />
 -------------------------------------------------------------------------------------------------------------------------<br /><br />
 1) No item 1 foi desenvolvido um CRUD para cadastro de contato<br /> com alguns campos necessário para criação do mesmo.<br />
 Seguem os itens não implentados:<br />
-Para compensar alguns dos itens <C,E,H,I,J,K><br />
+Para compensar alguns dos itens <E,H,I,J,K><br />
 
 Seguem os itens implementados:<br />
 A. Criado uma aplicação java web utilizando JavaServer Faces (JSF)<br />
